@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import { render } from "react-dom";
+import React from "react"
+import ReactDom from "react-dom"
+import App from "./App"
+import "./App.css"
 
-function App() {
-    const [state, setState] = useState("CLICK ME");
+ReactDom.render(<App />, document.getElementById('root'))
 
-    return <button onClick={() => setState("CLICKED")}>{state}</button>;
-}
+// import React from "react"
+// import ReactDom from "react-dom"
+// import App from "./App"
+// import "./App.css"
 
-render(<App />, document.getElementById("root"));
+// ReactDom.render(<App />, document.getElementById('test'))
