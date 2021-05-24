@@ -9,6 +9,5 @@ function App() {
 }
 
 
-
 ReactDom.render(<App />, document.getElementById('test'))
 // document.getElementById('test').innerHTML = "<h1>on page 2 via inner html</h2>";
