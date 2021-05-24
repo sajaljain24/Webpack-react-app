@@ -46,17 +46,20 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     // Where files should be sent once they are bundled
     entry: {
-        index: './src/index.js',
-        index2: './src/index2.js',
-        App: './src/app.css',
+        home: ['./src/home.js'],
+        about: ['./src/about.js'],
+        contact: ['./src/contact.js'],
+        commoncss: ['./src/app.css'],
     },
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: '[name].bundle.js'
+        filename: 'js/[name].bundle.js'
     },
     // webpack 5 comes with devServer which loads in development mode
     devServer: {
+        index: 'home.html',
         contentBase: path.join(__dirname, 'dist'),
+        writeToDisk: true,
         port: 3000,
         watchContentBase: true
     },
@@ -77,10 +80,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './src/index.html', filename: 'index.html' }),
-        new HtmlWebpackPlugin({ template: './src/index2.html', filename: 'index2.html' }),
+        new HtmlWebpackPlugin({ template: './src/home.html', filename: 'home.html', inject: 'body', chunks: ["home", "commoncss"], templateParameters: { "ref": "./about.html", "myTitle": "Page 2" } }),
+        new HtmlWebpackPlugin({ template: './src/home.html', filename: 'about.html', inject: 'body', chunks: ["about", "commoncss"], templateParameters: { "ref": "./contact.html", "myTitle": "Contact" } }),
+        new HtmlWebpackPlugin({ template: './src/home.html', filename: 'contact.html', inject: 'body', chunks: ["contact", "commoncss"], templateParameters: { "ref": "./", "myTitle": "" } }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: 'css/[name].css',
         }),
     ],
 }
