@@ -20,17 +20,6 @@ eval("\n\nmodule.exports = ansiHTML; // Reference to https://github.com/sindreso
 
 /***/ }),
 
-/***/ "./node_modules/ansi-regex/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/ansi-regex/index.js ***!
-  \******************************************/
-/***/ ((module) => {
-
-"use strict";
-eval("\n\nmodule.exports = function () {\n  return /[\\u001b\\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-PRZcf-nqry=><]/g;\n};\n\n//# sourceURL=webpack://03/./node_modules/ansi-regex/index.js?");
-
-/***/ }),
-
 /***/ "./node_modules/events/events.js":
 /*!***************************************!*\
   !*** ./node_modules/events/events.js ***!
@@ -256,7 +245,18 @@ eval("/* sockjs-client v1.5.1 | http://sockjs.org | MIT license */\n(function (f
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("\n\nvar ansiRegex = __webpack_require__(/*! ansi-regex */ \"./node_modules/ansi-regex/index.js\")();\n\nmodule.exports = function (str) {\n  return typeof str === 'string' ? str.replace(ansiRegex, '') : str;\n};\n\n//# sourceURL=webpack://03/./node_modules/strip-ansi/index.js?");
+eval("\n\nvar ansiRegex = __webpack_require__(/*! ansi-regex */ \"./node_modules/strip-ansi/node_modules/ansi-regex/index.js\")();\n\nmodule.exports = function (str) {\n  return typeof str === 'string' ? str.replace(ansiRegex, '') : str;\n};\n\n//# sourceURL=webpack://03/./node_modules/strip-ansi/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/strip-ansi/node_modules/ansi-regex/index.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/strip-ansi/node_modules/ansi-regex/index.js ***!
+  \******************************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n\nmodule.exports = function () {\n  return /[\\u001b\\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-PRZcf-nqry=><]/g;\n};\n\n//# sourceURL=webpack://03/./node_modules/strip-ansi/node_modules/ansi-regex/index.js?");
 
 /***/ }),
 
@@ -440,18 +440,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nvar _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\"));\n\nvar _App = _interopRequireDefault(__webpack_require__(/*! ./App */ \"./src/App.js\"));\n\n__webpack_require__(/*! ./App.css */ \"./src/App.css\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n_reactDom[\"default\"].render( /*#__PURE__*/_react[\"default\"].createElement(_App[\"default\"], null), document.getElementById('root')); // import React from \"react\"\n// import ReactDom from \"react-dom\"\n// import App from \"./App\"\n// import \"./App.css\"\n// ReactDom.render(<App />, document.getElementById('test'))\n\n//# sourceURL=webpack://03/./src/home.js?");
-
-/***/ }),
-
-/***/ "./src/App.css":
-/*!*********************!*\
-  !*** ./src/App.css ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://03/./src/App.css?");
+eval("\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nvar _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\"));\n\nvar _App = _interopRequireDefault(__webpack_require__(/*! ./App */ \"./src/App.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n_reactDom[\"default\"].render( /*#__PURE__*/_react[\"default\"].createElement(_App[\"default\"], null), document.getElementById('root')); // import React from \"react\"\n// import ReactDom from \"react-dom\"\n// import App from \"./App\"\n// import \"./App.css\"\n// ReactDom.render(<App />, document.getElementById('test'))\n\n//# sourceURL=webpack://03/./src/home.js?");
 
 /***/ }),
 
@@ -510,17 +499,6 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
