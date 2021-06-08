@@ -15,6 +15,7 @@ const SignupForm = () => {
                     .max(20, 'Must be 20 characters or less')
                     .required('Required'),
                 streetAddress: Yup.string()
+                    .max(50, 'Must be 50 characters or less')
                     .required('Required'),
                 city: Yup.string()
                     .required('Required'),
@@ -23,8 +24,11 @@ const SignupForm = () => {
                 province: Yup.string()
                     .required('Required'),
                 postalCode: Yup.string()
+                    .min(6, 'Must be exactly 6 digits')
+                    .max(6, 'Must be exactly 6 digits')
                     .required('Required'),
                 phoneNumber: Yup.string()
+                    .matches(/^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/, "Invalid ")
                     .required('Required'),
                 email: Yup.string().email('Invalid email address').required('Required'),
             })}
@@ -117,8 +121,8 @@ const SignupForm = () => {
                     <label htmlFor="phoneNumber">Phone Number</label>
                     <input
                         id="phoneNumber"
-                        type="text"
-                        placeholder="Phone Number"
+                        type="tel"
+                        placeholder="(000) 000-0000"
                         {...formik.getFieldProps('phoneNumber')}
                     />
                     {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
@@ -126,7 +130,10 @@ const SignupForm = () => {
                     ) : null}
 
                     <label htmlFor="email">Email Address</label>
-                    <input id="email" type="email" {...formik.getFieldProps('email')} />
+                    <input id="email"
+                        type="email"
+                        placeholder="email@example.com"
+                        {...formik.getFieldProps('email')} />
                     {formik.touched.email && formik.errors.email ? (
                         <div>{formik.errors.email}</div>
                     ) : null}
