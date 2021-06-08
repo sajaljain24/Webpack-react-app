@@ -47,7 +47,7 @@ module.exports = {
     // Where files should be sent once they are bundled
     entry: {
         home: ['./src/home.js'],
-        about: ['./src/about.js'],
+        signup: ['./src/signup.js'],
         contact: ['./src/contact.js'],
         commoncss: ['./src/app.css'],
     },
@@ -80,8 +80,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './src/home.html', filename: 'home.html', inject: 'body', chunks: ["home", "commoncss"], templateParameters: { "ref": "./about.html", "myTitle": "Page 2" } }),
-        new HtmlWebpackPlugin({ template: './src/home.html', filename: 'about.html', inject: 'body', chunks: ["about", "commoncss"], templateParameters: { "ref": "./contact.html", "myTitle": "Contact" } }),
+        new HtmlWebpackPlugin({ template: './src/home.html', filename: 'home.html', inject: 'body', chunks: ["home", "commoncss"], templateParameters: { "ref": "./signup.html", "myTitle": "Page 2" } }),
+        new HtmlWebpackPlugin({ template: './src/home.html', filename: 'signup.html', inject: 'body', chunks: ["signup", "commoncss"], templateParameters: { "ref": "./contact.html", "myTitle": "Contact" } }),
         new HtmlWebpackPlugin({ template: './src/home.html', filename: 'contact.html', inject: 'body', chunks: ["contact", "commoncss"], templateParameters: { "ref": "./", "myTitle": "" } }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
